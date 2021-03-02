@@ -200,6 +200,13 @@ class _MainPageWidgetState extends State<MainPageWidget> {
               getOcrConfigs();
             },
           ),
+          MenuItemWidget(
+            "cleanUpStorage()",
+            startIcon: Icons.plumbing,
+            onTap: () {
+              cleanUpStorage();
+            },
+          ),
         ],
       ),
     );
@@ -223,6 +230,10 @@ class _MainPageWidgetState extends State<MainPageWidget> {
       print(e);
       showAlertDialog(context, "Error getting OCR configs");
     }
+  }
+
+  cleanUpStorage() async {
+    await ScanbotSdk.cleanupStorage();
   }
 
   importImage() async {
